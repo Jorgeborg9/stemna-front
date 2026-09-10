@@ -1,0 +1,1180 @@
+/* SEO-page family only. Colors come from the existing Stemna design tokens. */
+.hero {
+  padding: 12px 0 0;
+}
+.twoColumns,
+.trialBlock {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  align-items: stretch;
+  gap: 0;
+  background: var(--mint);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.heroCopy {
+  padding: 48px 10px 42px 42px;
+  position: relative;
+  z-index: 1;
+}
+.heroCopy > :global(.eyebrow) {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 20px;
+  background: var(--mint-deep);
+  font-size: 10px;
+  margin-bottom: 19px;
+}
+.hero h1 {
+  font-size: clamp(38px, 3.5vw, 50px);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -1.8px;
+  color: var(--dark);
+}
+.intro {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--muted);
+  margin-top: 22px;
+  max-width: 530px;
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 25px;
+}
+.actions :global(.button) {
+  gap: 15px;
+}
+.heroTrust {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 12px 18px;
+  font-size: 12px;
+  margin-top: 24px;
+}
+.practiceVisual {
+  position: relative;
+  min-width: 0;
+  min-height: 460px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.practicePhoto {
+  object-fit: cover;
+}
+.practiceVisual:has(.practicePhoto)::after {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 23%;
+  pointer-events: none;
+  background: linear-gradient(to right, var(--mint), transparent);
+}
+.hearingPlaceholder {
+  align-self: stretch;
+  width: 100%;
+  margin: 25px;
+  border: 1px dashed var(--border);
+  border-radius: 10px;
+  padding: 35px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--secondary);
+}
+.hearingPlaceholder > span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 68px;
+  height: 68px;
+  background: var(--mint-deep);
+  border-radius: 50%;
+  margin-bottom: 22px;
+}
+.hearingPlaceholder h3 {
+  font-size: 23px;
+}
+.hearingPlaceholder p {
+  margin-top: 14px;
+  max-width: 260px;
+  font-size: 15px;
+  color: var(--muted);
+}
+.hearingPlaceholder small {
+  margin-top: 26px;
+  font-size: 11px;
+  color: var(--muted);
+}
+.featureSection {
+  padding: 38px 0 45px;
+}
+.features {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.features article {
+  text-align: center;
+  padding: 0 25px;
+}
+.features h2 {
+  font-size: 17px;
+  letter-spacing: -0.3px;
+  margin-bottom: 7px;
+}
+.features p {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.65;
+  max-width: 225px;
+  margin-inline: auto;
+}
+.features :global(.feature-icon) {
+  background: var(--mint);
+}
+.previewFigure {
+  background: var(--mint);
+  border-radius: 15px;
+  padding: 24px 20px 15px;
+  min-width: 0;
+  color: var(--dark);
+}
+.preview {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--white);
+  overflow: hidden;
+}
+.previewBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 12px 18px;
+  background: var(--dark);
+  color: var(--white);
+  font-size: 12px;
+}
+.previewBar :global(.brand) {
+  width: 115px;
+}
+.previewBar :global(.brand-icon) {
+  width: 24px;
+}
+.previewBar :global(.brand-wordmark) {
+  width: 91px;
+}
+.previewBody {
+  padding: 18px 22px 22px;
+}
+.previewTabs {
+  display: flex;
+  gap: 20px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 12px;
+  color: var(--muted);
+  font-size: 11px;
+}
+.previewTabs .selected {
+  color: var(--secondary);
+  font-weight: 600;
+}
+.previewTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin: 22px 0;
+}
+.previewTitle p {
+  font-size: 8px;
+  letter-spacing: 1.2px;
+  color: var(--secondary);
+}
+.previewTitle h3 {
+  margin-top: 6px;
+  font-size: 20px;
+  letter-spacing: -0.5px;
+}
+.previewTitle > svg {
+  color: var(--secondary);
+}
+.patient {
+  display: flex;
+  gap: 11px;
+  align-items: center;
+  font-size: 12px;
+}
+.patient strong {
+  font-weight: 500;
+}
+.patient small {
+  display: block;
+  color: var(--muted);
+  font-size: 10px;
+}
+.patientIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: var(--mint);
+  color: var(--secondary);
+}
+.patientIcon svg {
+  width: 18px;
+}
+.journal {
+  margin-top: 18px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 16px;
+}
+.journal > span {
+  font-size: 8px;
+  letter-spacing: 1px;
+  color: var(--muted);
+}
+.journal h4 {
+  margin: 7px 0;
+  font-size: 13px;
+  font-weight: 600;
+}
+.journal p {
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.noteLines {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 15px;
+}
+.noteLines i {
+  display: block;
+  height: 4px;
+  width: 90%;
+  background: var(--mint);
+  border-radius: 4px;
+}
+.noteLines i:last-child {
+  width: 65%;
+}
+.nextAppointment {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 18px;
+  font-size: 10px;
+}
+.nextAppointment svg {
+  width: 16px;
+  color: var(--secondary);
+}
+.nextAppointment strong {
+  margin-left: auto;
+  font-weight: 500;
+}
+.previewFigure figcaption {
+  text-align: center;
+  margin-top: 14px;
+  font-size: 11px;
+  color: var(--muted);
+}
+.previewStats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.previewStats > div {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 10px;
+}
+.previewStats span {
+  font-size: 10px;
+  color: var(--muted);
+}
+.previewStats strong {
+  display: block;
+  font-size: 24px;
+  margin-top: 5px;
+}
+.previewRows {
+  margin-top: 16px;
+}
+.previewRows > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 11px;
+}
+.previewRows b {
+  font-weight: 500;
+}
+.previewRows small {
+  display: block;
+  font-size: 10px;
+  color: var(--muted);
+}
+.status {
+  background: var(--mint);
+  color: var(--secondary);
+  padding: 4px 7px;
+  border-radius: 4px;
+  font-size: 9px;
+}
+.previewNote {
+  font-size: 10px;
+  color: var(--secondary);
+  margin-top: 16px;
+}
+.valueSection {
+  padding: 22px 0 35px;
+}
+.valueHeading {
+  max-width: 760px;
+  margin: 0 0 30px;
+}
+.valueHeading h2 {
+  font-size: 34px;
+  letter-spacing: -1px;
+}
+.valueHeading p {
+  margin-top: 14px;
+  line-height: 1.8;
+  color: var(--muted);
+  font-size: 16px;
+}
+.productLayout {
+  display: grid;
+  grid-template-columns: 1.7fr 1fr;
+  gap: 55px;
+  align-items: center;
+}
+.largePreview {
+  min-width: 0;
+}
+.largePreview .previewFigure {
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  position: relative;
+}
+.largePreview .preview {
+  border: 6px solid var(--dark);
+  border-radius: 10px;
+}
+.largePreview .previewFigure::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: -10px;
+  right: -10px;
+  bottom: 28px;
+  height: 8px;
+  border-radius: 0 0 50% 50%;
+  background: var(--border);
+}
+.largePreview .previewFigure figcaption {
+  margin-top: 21px;
+}
+.largePreview .previewBody {
+  padding: 20px 28px;
+}
+.largePreview .previewTitle h3 {
+  font-size: 23px;
+}
+.largePreview .journal p {
+  font-size: 13px;
+}
+.largePreview .journal h4 {
+  font-size: 15px;
+}
+.largePreview .previewRows > div {
+  font-size: 13px;
+}
+.valueBenefits {
+  font-size: 16px;
+  gap: 23px;
+}
+.valueBenefits :global(.check-circle),
+.trialTrust :global(.check-circle),
+.trialPrice :global(.check-circle) {
+  background: var(--secondary);
+  color: var(--white);
+}
+.related {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 26px;
+  margin-top: 0;
+}
+.related :global(.inline-link) {
+  margin-top: 20px;
+  font-size: 13px;
+}
+.testimonial {
+  padding: 0 0 35px;
+}
+.quote {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  border-radius: 12px;
+  background: var(--mint);
+  padding: 25px 32px;
+}
+.avatar {
+  position: relative;
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.quoteContent {
+  max-width: 910px;
+}
+.quote blockquote {
+  margin: 0 0 9px;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--dark);
+}
+.quote figcaption {
+  font-size: 13px;
+  color: var(--muted);
+}
+.quote p {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 5px;
+}
+.trialSection {
+  padding: 0;
+}
+.trialBlock {
+  grid-template-columns: 1.1fr 1fr;
+  padding: 0;
+  color: var(--dark);
+}
+.trialContent {
+  padding: 42px;
+}
+.trialContent > :global(.eyebrow) {
+  margin-bottom: 16px;
+}
+.trialBlock h2 {
+  font-size: 42px;
+  max-width: 450px;
+  letter-spacing: -1.4px;
+}
+.trialCopy {
+  font-size: 16px;
+  margin-top: 18px;
+  color: var(--muted);
+}
+.trialTrust {
+  margin-top: 22px;
+  font-size: 14px;
+  gap: 12px;
+}
+.trialPrice {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0 5px;
+  font-size: 14px;
+  margin-top: 12px;
+}
+.trialPrice :global(.check-circle) {
+  margin-right: 5px;
+}
+.priceLink {
+  display: inline-block;
+  margin-top: 15px;
+  font-size: 12px;
+  color: var(--secondary);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.refundVisual {
+  padding: 30px;
+}
+.refundVisual .previewFigure {
+  padding: 0;
+  width: 100%;
+  background: transparent;
+}
+.refundVisual .preview {
+  border-color: var(--border);
+}
+.faqSection {
+  padding: 52px 0 62px;
+}
+.faq {
+  max-width: 1200px;
+}
+.faq h2 {
+  font-size: 30px;
+  letter-spacing: -0.8px;
+}
+.questions {
+  margin-top: 24px;
+}
+.questions details {
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  margin-top: 9px;
+  background: var(--white);
+}
+.questions summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  list-style: none;
+  padding: 17px 20px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.questions summary::-webkit-details-marker {
+  display: none;
+}
+.questions summary > span {
+  color: var(--secondary);
+  font-size: 18px;
+}
+.questions details[open] summary > span {
+  transform: rotate(180deg);
+}
+.questions summary:focus-visible {
+  outline: 3px solid var(--secondary);
+  outline-offset: 4px;
+  border-radius: 7px;
+}
+.questions p {
+  color: var(--muted);
+  margin: 0 55px 20px 20px;
+  line-height: 1.8;
+  max-width: 850px;
+}
+@media (max-width: 1100px) {
+  .heroCopy {
+    padding: 35px 10px 32px 28px;
+  }
+  .hero h1 {
+    font-size: 40px;
+  }
+  .intro {
+    font-size: 15px;
+  }
+  .heroTrust {
+    font-size: 11px;
+    gap: 10px;
+  }
+  .productLayout {
+    gap: 35px;
+    grid-template-columns: 1.5fr 1fr;
+  }
+  .trialContent {
+    padding: 32px;
+  }
+  .trialBlock h2 {
+    font-size: 36px;
+  }
+  .refundVisual {
+    padding: 22px;
+  }
+  .features article {
+    padding: 0 15px;
+  }
+  .previewBody {
+    padding: 16px;
+  }
+  .trialBlock .actions :global(.button) {
+    padding-inline: 15px;
+  }
+  .valueBenefits {
+    font-size: 14px;
+  }
+}
+@media (max-width: 760px) {
+  .hero {
+    padding-top: 10px;
+  }
+  .twoColumns,
+  .trialBlock {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .heroCopy,
+  .trialContent {
+    padding: 28px 24px;
+  }
+  .hero h1 {
+    font-size: 36px;
+    letter-spacing: -1.3px;
+  }
+  .intro {
+    font-size: 16px;
+  }
+  .actions {
+    flex-direction: column;
+  }
+  .actions :global(.button) {
+    width: 100%;
+  }
+  .heroTrust {
+    gap: 10px 16px;
+  }
+  .practiceVisual {
+    min-height: 320px;
+  }
+  .practiceVisual:has(.practicePhoto)::after {
+    display: none;
+  }
+  .hearingPlaceholder {
+    min-height: 280px;
+    margin: 0 20px 20px;
+    padding: 25px;
+  }
+  .featureSection {
+    padding: 30px 0;
+  }
+  .features {
+    grid-template-columns: 1fr 1fr;
+    gap: 27px 0;
+  }
+  .features article {
+    padding-inline: 12px;
+  }
+  .features h2 {
+    font-size: 16px;
+  }
+  .features p {
+    font-size: 13px;
+  }
+  .valueSection {
+    padding: 15px 0 28px;
+  }
+  .valueHeading h2 {
+    font-size: 29px;
+  }
+  .valueHeading p {
+    font-size: 15px;
+  }
+  .productLayout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
+  }
+  .largePreview .previewBody {
+    padding: 16px;
+  }
+  .largePreview .previewTitle h3 {
+    font-size: 19px;
+  }
+  .largePreview .previewFigure::after {
+    left: -4px;
+    right: -4px;
+  }
+  .valueBenefits {
+    font-size: 15px;
+    gap: 15px;
+  }
+  .related {
+    gap: 5px 15px;
+  }
+  .testimonial {
+    padding-bottom: 28px;
+  }
+  .quote {
+    padding: 22px;
+    gap: 15px;
+    align-items: flex-start;
+  }
+  .avatar {
+    width: 48px;
+    height: 48px;
+  }
+  .quote blockquote {
+    font-size: 15px;
+  }
+  .quote figcaption {
+    font-size: 12px;
+  }
+  .quote p {
+    font-size: 10px;
+  }
+  .trialBlock h2 {
+    font-size: 33px;
+  }
+  .trialPrice {
+    font-size: 13px;
+  }
+  .refundVisual {
+    padding: 0 20px 24px;
+  }
+  .refundVisual .previewFigure {
+    margin-top: 12px;
+  }
+  .previewTabs {
+    gap: 15px;
+  }
+  .previewStats {
+    gap: 7px;
+  }
+  .previewStats > div {
+    padding: 7px;
+  }
+  .previewStats span {
+    font-size: 9px;
+  }
+  .previewBar {
+    padding: 12px;
+    gap: 10px;
+  }
+  .previewBar > span {
+    font-size: 10px;
+  }
+  .faqSection {
+    padding: 36px 0 45px;
+  }
+  .faq h2 {
+    font-size: 28px;
+  }
+  .questions summary {
+    padding: 16px;
+    font-size: 15px;
+  }
+  .questions p {
+    margin: 0 16px 18px;
+    font-size: 15px;
+  }
+}
+@media (max-width: 380px) {
+  .heroCopy,
+  .trialContent {
+    padding: 24px 18px;
+  }
+  .hero h1 {
+    font-size: 31px;
+  }
+  .trialBlock h2 {
+    font-size: 30px;
+  }
+  .previewBody,
+  .largePreview .previewBody {
+    padding: 12px;
+  }
+  .previewTabs {
+    font-size: 10px;
+    gap: 10px;
+  }
+  .previewTitle h3 {
+    font-size: 17px;
+  }
+  .previewTitle {
+    gap: 8px;
+  }
+  .previewStats span {
+    font-size: 8px;
+  }
+  .nextAppointment {
+    font-size: 9px;
+    gap: 5px;
+  }
+  .previewRows > div {
+    gap: 8px;
+  }
+  .quote {
+    gap: 12px;
+    padding: 18px;
+  }
+  .avatar {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* Keep HELFO hero/CTA proportions close to the practice-image panels. */
+.refundVisual .previewBody {
+  padding: 14px 18px;
+}
+.refundVisual .previewTitle {
+  margin: 14px 0;
+}
+.refundVisual .previewTitle h3 {
+  font-size: 18px;
+}
+.refundVisual .previewStats strong {
+  font-size: 20px;
+  margin-top: 2px;
+}
+.refundVisual .previewRows {
+  margin-top: 10px;
+}
+.refundVisual .previewRows > div {
+  padding-block: 8px;
+}
+.refundVisual .previewNote {
+  margin-top: 10px;
+}
+@media (max-width: 380px) {
+  .refundVisual .previewBody {
+    padding: 12px;
+  }
+}
+
+/* Explicit, consistent composition for all three SEO routes. */
+.page :global(.container) {
+  width: min(1200px, calc(100% - 80px));
+  max-width: 1200px;
+  margin-inline: auto;
+}
+.page .hero {
+  padding-top: 32px;
+}
+.page .twoColumns,
+.page .trialBlock {
+  display: grid;
+  grid-template-columns: minmax(0, 55fr) minmax(0, 45fr);
+  gap: 0;
+  background: var(--mint);
+  color: var(--dark);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.page .twoColumns {
+  min-height: 500px;
+}
+.page .heroCopy,
+.page .trialContent {
+  align-self: center;
+  padding: 36px 32px 36px 40px;
+  min-width: 0;
+}
+.page .practiceVisual {
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+  align-self: stretch;
+}
+.page .practicePhoto {
+  object-fit: cover;
+}
+.page .featureSection {
+  padding: 40px 0 44px;
+}
+.page .features {
+  min-height: 130px;
+  align-items: start;
+}
+.page .valueSection {
+  padding: 20px 0 32px;
+}
+.page .valueHeading {
+  max-width: 780px;
+  text-align: center;
+  margin: 0 auto 20px;
+}
+.page .productLayout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 18px;
+  max-width: 740px;
+  margin-inline: auto;
+}
+.page .largePreview {
+  width: 100%;
+  max-width: 740px;
+  margin-inline: auto;
+}
+.page .largePreview .previewBody {
+  padding: 16px 26px;
+}
+.page .largePreview .previewTitle {
+  margin: 14px 0;
+}
+.page .largePreview .journal {
+  padding: 12px 16px;
+  margin-top: 12px;
+}
+.page .largePreview .previewRows > div {
+  padding-block: 9px;
+}
+.page .valueBenefits {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 28px;
+  font-size: 15px;
+}
+.page .related {
+  justify-content: center;
+  margin-top: 8px;
+}
+.page .testimonial {
+  padding: 8px 0 44px;
+}
+.page .quote {
+  padding: 22px 30px;
+  min-height: 116px;
+}
+.page .trialSection {
+  padding: 0;
+}
+.page .trialBlock {
+  min-height: 500px;
+}
+.page .trialBlock h2 {
+  max-width: 440px;
+}
+.page .refundVisual {
+  padding: 24px;
+}
+.page .refundVisual .previewFigure {
+  width: 100%;
+  margin: 0;
+}
+.page .faqSection {
+  padding: 44px 0 48px;
+}
+@media (max-width: 1100px) {
+  .page .heroCopy,
+  .page .trialContent {
+    padding: 30px 24px;
+  }
+  .page .refundVisual {
+    padding: 18px;
+  }
+}
+@media (max-width: 760px) {
+  .page :global(.container) {
+    width: calc(100% - 40px);
+  }
+  .page .hero {
+    padding-top: 16px;
+  }
+  .page .twoColumns,
+  .page .trialBlock {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 0;
+  }
+  .page .heroCopy,
+  .page .trialContent {
+    padding: 28px 24px;
+  }
+  .page .practiceVisual {
+    min-height: 280px;
+  }
+  .page .featureSection {
+    padding: 30px 0;
+  }
+  .page .features {
+    min-height: 0;
+  }
+  .page .valueSection {
+    padding: 15px 0 28px;
+  }
+  .page .valueHeading {
+    text-align: left;
+  }
+  .page .largePreview .previewBody {
+    padding: 14px;
+  }
+  .page .valueBenefits {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .page .testimonial {
+    padding: 8px 0 32px;
+  }
+  .page .quote {
+    padding: 20px;
+  }
+  .page .refundVisual {
+    padding: 0 20px 24px;
+  }
+  .page .faqSection {
+    padding: 36px 0 40px;
+  }
+}
+@media (max-width: 380px) {
+  .page .heroCopy,
+  .page .trialContent {
+    padding: 24px 18px;
+  }
+  .page .largePreview .previewBody {
+    padding: 12px;
+  }
+}
+
+/* Keep the product introduction connected to the preview. */
+.page .valueHeading p {
+  margin-top: 10px;
+}
+
+/* Product section only: copy and a replaceable laptop asset on the left. */
+.productSection {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  grid-template-areas: "intro ." "laptop benefits";
+  gap: 20px 48px;
+  align-items: center;
+}
+.productIntro {
+  grid-area: intro;
+  text-align: left;
+}
+.productIntro h2 {
+  font-size: 34px;
+  letter-spacing: -1px;
+}
+.productIntro p {
+  margin-top: 10px;
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+.productLaptop {
+  grid-area: laptop;
+  margin: 0;
+  min-width: 0;
+}
+.productLaptop img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+.productLaptop figcaption {
+  text-align: center;
+  margin-top: 8px;
+  font-size: 11px;
+  color: var(--muted);
+}
+.productBenefits {
+  grid-area: benefits;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  font-size: 16px;
+  max-width: 360px;
+  padding-bottom: 24px;
+}
+@media (max-width: 900px) {
+  .productSection {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "intro" "laptop" "benefits";
+    gap: 20px;
+  }
+  .productBenefits {
+    max-width: none;
+    padding-bottom: 0;
+    gap: 18px;
+  }
+}
+@media (max-width: 760px) {
+  .productIntro h2 {
+    font-size: 28px;
+  }
+  .productIntro p {
+    font-size: 15px;
+  }
+  .productBenefits {
+    font-size: 15px;
+  }
+}
+
+/* Shared CTA only: merge the photo into the mint banner without altering it. */
+.page .trialBlock {
+  background: linear-gradient(110deg, var(--mint-deep) 0%, var(--mint) 55%);
+}
+.trialImage {
+  object-fit: cover;
+  object-position: center;
+}
+.trialVisual::after {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 35%;
+  pointer-events: none;
+  background: linear-gradient(
+    to right,
+    var(--mint) 0%,
+    color-mix(in srgb, var(--mint) 50%, transparent) 23%,
+    color-mix(in srgb, var(--mint) 16%, transparent) 51%,
+    color-mix(in srgb, var(--mint) 2%, transparent) 91%,
+    transparent 100%
+  );
+}
+@media (max-width: 900px) {
+  .page .trialBlock {
+    grid-template-columns: minmax(0, 1fr);
+    background: linear-gradient(to bottom, var(--mint-deep), var(--mint) 55%);
+  }
+  .page .trialVisual {
+    min-height: 280px;
+    aspect-ratio: 3 / 2;
+  }
+  .trialVisual::after {
+    inset: 0 0 auto;
+    width: 100%;
+    height: 12%;
+    background: linear-gradient(
+      to bottom,
+      var(--mint) 0%,
+      color-mix(in srgb, var(--mint) 35%, transparent) 20%,
+      transparent 100%
+    );
+  }
+}
+
+/* Audiopedagog hero only; other audience heroes retain their current visuals. */
+.audiopedagogVisual {
+  align-self: center;
+  min-width: 0;
+  padding: 24px 16px 24px 8px;
+}
+.audiopedagogPhoto {
+  position: relative;
+  aspect-ratio: 5 / 4;
+  overflow: hidden;
+  border-radius: 64px 18px 64px 18px;
+  background: var(--mint-deep);
+}
+.audiopedagogPhoto img {
+  object-fit: cover;
+  object-position: 50% 45%;
+}
+@media (max-width: 900px) {
+  .page .audiopedagogHero {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .audiopedagogVisual {
+    padding: 0 24px 24px;
+  }
+  .audiopedagogPhoto {
+    aspect-ratio: 3 / 2;
+  }
+}
+@media (max-width: 480px) {
+  .audiopedagogPhoto {
+    border-radius: 40px 14px 40px 14px;
+  }
+}

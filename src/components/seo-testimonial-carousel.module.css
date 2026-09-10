@@ -1,0 +1,159 @@
+.card {
+  padding: 24px 32px 16px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--mint);
+  color: var(--dark);
+}
+/* Overlapping grid cells reserve the tallest quote's height on every slide. */
+.slides {
+  display: grid;
+}
+.slide {
+  grid-area: 1 / 1;
+  display: grid;
+  grid-template-columns: 88px minmax(0, 1fr);
+  gap: 28px;
+  align-items: center;
+  visibility: hidden;
+  margin: 0;
+}
+.slide[data-active="true"] {
+  visibility: visible;
+  animation: reveal 220ms ease-out;
+}
+.avatar {
+  position: relative;
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.content {
+  max-width: 930px;
+}
+.content blockquote {
+  margin: 0 0 12px;
+  font-size: 21px;
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: -0.3px;
+}
+.content figcaption {
+  display: grid;
+  gap: 2px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.content strong {
+  font-size: 15px;
+  font-weight: 600;
+}
+.content figcaption span {
+  color: var(--muted);
+}
+.footer {
+  margin: 8px 0 0 116px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer p {
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--muted);
+  margin: 0;
+}
+.controls,
+.dots {
+  display: flex;
+  align-items: center;
+}
+.controls {
+  gap: 4px;
+  flex-shrink: 0;
+}
+.controls button {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--secondary);
+  cursor: pointer;
+}
+.controls button:hover {
+  background: var(--mint-deep);
+}
+.controls button:focus-visible {
+  outline: 2px solid var(--dark);
+  outline-offset: 2px;
+}
+.dots button {
+  width: 26px;
+}
+.dots span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--border);
+}
+.dots [aria-current="true"] span {
+  background: var(--secondary);
+}
+@keyframes reveal {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .slide[data-active="true"] {
+    animation: none;
+  }
+}
+@media (max-width: 760px) {
+  .card {
+    padding: 22px 20px 14px;
+  }
+  .slide {
+    grid-template-columns: 64px minmax(0, 1fr);
+    gap: 16px;
+    align-items: start;
+  }
+  .avatar {
+    width: 64px;
+    height: 64px;
+  }
+  .content blockquote {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+  .footer {
+    margin: 16px 0 0;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .controls {
+    margin-left: auto;
+  }
+  .controls button {
+    height: 44px;
+    width: 36px;
+  }
+  .dots button {
+    width: 28px;
+  }
+}
+@media (max-width: 380px) {
+  .slide {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+}
