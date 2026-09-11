@@ -1,3 +1,4 @@
+import { EarlyBirdPricing } from "./early-bird-pricing";
 import { TestimonialCarousel } from "./testimonial-carousel";
 import Image from "next/image";
 import Link from "next/link";
@@ -11,7 +12,6 @@ import {
   steps,
   trial,
   showProductVideo,
-  reimbursementSteps,
   webBenefits,
   trustBenefits,
   photography,
@@ -412,43 +412,12 @@ export function Testimonials() {
 }
 export function Pricing() {
   return (
-    <section id="priser" className="section pricing-section">
-      <div className="container">
-        <div className="section-heading centered">
-          <p className="eyebrow">EN ENKEL PRIS</p>
-          <h2>Én pris. Alt inkludert.</h2>
-          <p>Ingen kompliserte pakker eller skjulte kostnader.</p>
-        </div>
-        <div className="trial-intro centered">
-          <h3>Prøv Stemna gratis i 30 dager.</h3>
-          <p>Test systemet i din egen arbeidshverdag før du bestemmer deg.</p>
-        </div>
-        <div className="pricing-grid">
-          {pricing.plans.map((plan) => (
-            <article className="pricing-card" key={plan.name}>
-              <h3>{plan.name}</h3>
-              <p>{plan.description}</p>
-              <div className="price">
-                <strong>
-                  {new Intl.NumberFormat("nb-NO").format(plan.price)}{" "}
-                  {pricing.currency}
-                </strong>
-                <span>/ {pricing.interval}</span>
-              </div>
-              <Checks
-                className="pricing-reassurance"
-                items={trial.reassurance}
-              />
-              <Action className="button">
-                {trial.cta} <Icon name="arrow" />
-              </Action>
-              <div className="price-divider" />
-              <Checks items={plan.features} />
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
+    <EarlyBirdPricing
+      regularPrice={pricing.plans[0].price}
+      features={<Checks items={pricing.plans[0].features} />}
+      reassurance={<Checks className="pricing-reassurance" items={trial.reassurance} />}
+      arrow={<Icon name="arrow" />}
+    />
   );
 }
 export function Footer() {
@@ -519,57 +488,6 @@ function TherapyPhoto({ placement }: { placement: "hero" | "audience" }) {
         </>
       )}
     </div>
-  );
-}
-export function HelfoSection() {
-  return (
-    <section id="funksjoner" className="section helfo-section">
-      <div id="slik-fungerer-det" className="container problem-grid">
-        <div>
-          <p className="eyebrow">ENKLERE HELFO-REFUSJON</p>
-          <h2>Bruk mindre tid på hver refusjon.</h2>
-          <p className="section-copy">
-            Stemna er bygget for å gjøre{" "}
-            <Link className="contextual-link" href="/helfo-oppgjor">
-              HELFO-refusjon
-            </Link>{" "}
-            så enkelt som mulig. Pasienter, timer og takster er samlet på ett
-            sted, slik at du slipper unødvendig manuelt arbeid.
-          </p>
-          <p className="workflow-summary">
-            Fra gjennomført time til ferdig refusjonskrav – i én enkel
-            arbeidsflyt.
-          </p>
-        </div>
-        {/* Static placeholder workflow, not a working reimbursement submission. */}
-        <figure className="product-figure workflow-figure">
-          <div className="workflow-preview">
-            <div className="workflow-bar">
-              <Logo light />
-              <span>HELFO-refusjon</span>
-            </div>
-            <ol className="workflow-steps">
-              {reimbursementSteps.map((step, index) => (
-                <li key={step.title}>
-                  <span className="feature-icon">
-                    <Icon name={step.icon} />
-                  </span>
-                  <div>
-                    <span className="workflow-number">STEG {index + 1}</span>
-                    <h3>{step.title}</h3>
-                    <p>{step.description}</p>
-                  </div>
-                  {index < 2 && (
-                    <span className="workflow-connector" aria-hidden="true" />
-                  )}
-                </li>
-              ))}
-            </ol>
-          </div>
-          <figcaption>Illustrasjon av arbeidsflyten</figcaption>
-        </figure>
-      </div>
-    </section>
   );
 }
 export function WebPlatformSection() {

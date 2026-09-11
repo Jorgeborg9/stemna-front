@@ -1,8 +1,8 @@
+import { WhatIsStemna } from "@/components/what-is-stemna";
 import {
   Header,
   Hero,
   FeatureStrip,
-  HelfoSection,
   WebPlatformSection,
   TrustSection,
   ProblemSolution,
@@ -23,7 +23,7 @@ export default function Home() {
       <Header />
       <main id="innhold">
         <Hero />
-        <HelfoSection />
+        <WhatIsStemna />
         <FeatureStrip />
         <ProblemSolution />
         <SwitchingSection />

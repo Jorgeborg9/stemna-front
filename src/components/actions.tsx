@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { EarlyAccessAction } from "./early-access-dialog";
 import { useRef, useState } from "react";
 import { destinations, navigationGroups, trial } from "@/lib/landing-data";
 import navStyles from "./site-navigation.module.css";
@@ -8,10 +9,6 @@ const messages = {
   demo: {
     title: "Se Stemna i bruk",
     text: "Vi gjør klart for å vise deg Stemna. Demobooking er ikke tilgjengelig ennå. Her vil du kunne avtale en gjennomgang når vi åpner.",
-  },
-  signup: {
-    title: "Velkommen til Stemna",
-    text: "Prøv Stemna gratis i 30 dager når registreringen åpner. Vi hjelper deg med å komme i gang. Registrering er ikke tilgjengelig ennå.",
   },
   login: {
     title: "Logg inn i Stemna",
@@ -35,11 +32,12 @@ export function Action({
   children,
   className = "button",
 }: {
-  kind?: keyof typeof messages;
+  kind?: "signup" | keyof typeof messages;
   children: React.ReactNode;
   className?: string;
 }) {
   const dialog = useRef<HTMLDialogElement>(null);
+  if (kind === "signup") return <EarlyAccessAction className={className}>{children}</EarlyAccessAction>;
   if (destinations[kind])
     return (
       <Link className={className} href={destinations[kind]!}>

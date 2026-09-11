@@ -1,0 +1,11 @@
+.dialog { max-height: calc(100dvh - 32px); overflow-y: auto; }
+.close { position: absolute; top: 10px; right: 12px; background: transparent; border: 0; color: var(--dark); font-size: 26px; cursor: pointer; width: 32px; height: 32px; }
+.form { display: grid; gap: 8px; }
+.form label { font-size: 14px; font-weight: 600; }
+.form input, .form select { width: 100%; min-width: 0; border: 1px solid var(--border); border-radius: 7px; background: var(--white); color: var(--dark); padding: 11px 12px; font: inherit; font-size: 16px; margin-bottom: 8px; }
+.form input:focus-visible, .form select:focus-visible, .close:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+.form button[type="submit"] { margin-top: 8px; justify-content: center; }
+.form button:disabled { opacity: 0.65; cursor: wait; }
+.form .support { font-size: 12px; text-align: center; margin: 6px 0 0; }
+.form .error { margin: 0; font-size: 14px; color: var(--dark); }
+.honeypot { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }

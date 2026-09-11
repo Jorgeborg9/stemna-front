@@ -1,0 +1,364 @@
+.section {
+  padding-bottom: 64px;
+}
+.columns {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: 36px;
+  align-items: center;
+}
+.copy {
+  position: relative;
+  z-index: 1;
+}
+.copy h2 {
+  max-width: 510px;
+}
+.body {
+  margin-top: 22px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.75;
+}
+.body p + p {
+  margin-top: 14px;
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+.note {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.6;
+  margin-top: 12px;
+}
+.visual {
+  position: relative;
+  min-width: 0;
+  isolation: isolate;
+  padding: 60px 0 40px;
+}
+.backdrop {
+  position: absolute;
+  z-index: 0;
+  inset: 20px calc(-1 * clamp(12px, (100vw - 1200px) / 2 - 8px, 72px)) 12px -45%;
+  overflow: hidden;
+  border-radius: 12px;
+  pointer-events: none;
+}
+.backdrop img {
+  object-fit: cover;
+  object-position: right center;
+  filter: brightness(1.18) saturate(0.82) blur(3px);
+  transform: scale(1.02);
+}
+.backdrop::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  /* Only feather the outer 24px; preserve the photo across the interior. */
+  background:
+    linear-gradient(to bottom, var(--white), transparent 24px),
+    linear-gradient(to left, var(--white), transparent 24px),
+    linear-gradient(to top, var(--white), transparent 24px);
+}
+.backdrop::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    var(--white) 0%,
+    var(--white) 12%,
+    rgb(255 255 255 / 95%) 24%,
+    rgb(255 255 255 / 55%) 36%,
+    rgb(255 255 255 / 12%) 46%,
+    transparent 54%
+  );
+}
+.laptop {
+  margin: 0;
+  position: relative;
+  z-index: 2;
+}
+.screen {
+  border: 6px solid var(--dark);
+  border-radius: 12px 12px 7px 7px;
+  background: var(--white);
+  overflow: hidden;
+}
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+  font-size: 10px;
+  color: var(--muted);
+}
+.topbar :global(.brand) {
+  width: 94px;
+}
+.topbar :global(.brand-icon) {
+  width: 22px;
+}
+.topbar :global(.brand-wordmark) {
+  width: 72px;
+}
+.workspace {
+  display: grid;
+  grid-template-columns: 116px minmax(0, 1fr);
+  min-height: 295px;
+}
+.sidebar {
+  padding: 18px 8px;
+  background: var(--mint);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.sidebar > span {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 10px;
+  padding: 8px 5px;
+  border-radius: 5px;
+}
+.sidebar :global(.icon) {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+.selected {
+  background: var(--mint-deep);
+  color: var(--secondary);
+  font-weight: 600;
+}
+.patients {
+  padding: 22px 18px;
+  min-width: 0;
+}
+.overline {
+  font-size: 8px;
+  letter-spacing: 1px;
+  color: var(--secondary);
+  margin-bottom: 5px;
+}
+.patients h3 {
+  font-size: 23px;
+  letter-spacing: -0.5px;
+}
+.patients h3 + p {
+  font-size: 10px;
+  color: var(--muted);
+  margin-top: 6px;
+}
+.search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  padding: 9px;
+  margin: 16px 0 12px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  color: var(--muted);
+}
+.tableHeading,
+.patientRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+.tableHeading {
+  font-size: 9px;
+  color: var(--muted);
+  background: var(--mint);
+  padding: 8px;
+}
+.patientRow {
+  font-size: 10px;
+  padding: 9px 4px;
+  border-bottom: 1px solid var(--border);
+}
+.patientRow > span:first-child {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.patientRow > span:last-child {
+  color: var(--muted);
+}
+.avatar {
+  width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--mint);
+  color: var(--secondary);
+}
+.avatar :global(.icon) {
+  width: 13px;
+  height: 13px;
+}
+.base {
+  height: 9px;
+  margin: 0 -8px;
+  border-radius: 0 0 50% 50%;
+  background: var(--border);
+}
+.laptop figcaption {
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 10px;
+  text-align: center;
+}
+.features {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 46px;
+}
+.features article {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+}
+.featureIcon {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--mint);
+  color: var(--secondary);
+  margin-bottom: 16px;
+}
+.featureIcon :global(.icon) {
+  width: 21px;
+  height: 21px;
+}
+.features h3 {
+  font-size: 17px;
+  margin-bottom: 8px;
+}
+.features p {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.reassurance {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 32px;
+  font-size: 14px;
+}
+.reassurance > svg {
+  flex-shrink: 0;
+  color: var(--secondary);
+}
+.reassurance strong {
+  font-weight: 600;
+}
+.reassurance p {
+  color: var(--muted);
+  margin-top: 4px;
+}
+@media (max-width: 1100px) {
+  .columns {
+    gap: 24px;
+  }
+  .workspace {
+    grid-template-columns: 92px minmax(0, 1fr);
+  }
+  .sidebar > span {
+    font-size: 8px;
+    gap: 4px;
+  }
+  .patients {
+    padding: 18px 12px;
+  }
+  .features article {
+    padding: 20px;
+  }
+}
+@media (max-width: 900px) {
+  .backdrop {
+    inset: 0 -12px;
+  }
+  .columns {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+  .copy h2 {
+    max-width: 620px;
+  }
+  .visual {
+    width: 100%;
+    max-width: 650px;
+    margin-inline: auto;
+    padding: 36px 0 24px;
+  }
+  .workspace {
+    grid-template-columns: 116px minmax(0, 1fr);
+  }
+  .sidebar > span {
+    font-size: 10px;
+  }
+  .features {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 28px;
+  }
+}
+@media (max-width: 480px) {
+  .features {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+  .workspace {
+    grid-template-columns: 76px minmax(0, 1fr);
+  }
+  .sidebar {
+    padding: 14px 4px;
+  }
+  .sidebar > span {
+    font-size: 8px;
+    flex-wrap: wrap;
+  }
+  .patients {
+    padding: 16px 8px;
+  }
+  .patientRow,
+  .patients h3 + p {
+    font-size: 8px;
+  }
+  .avatar {
+    display: none;
+  }
+  .patients h3 {
+    font-size: 20px;
+  }
+  .screen {
+    border-width: 4px;
+  }
+  .tableHeading {
+    font-size: 8px;
+    padding: 6px 4px;
+  }
+  .reassurance {
+    align-items: flex-start;
+    font-size: 13px;
+  }
+}
