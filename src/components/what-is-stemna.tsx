@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Action } from "./actions";
@@ -28,15 +29,25 @@ const features: { title: string; text: string; icon: IconName }[] = [
   },
 ];
 
-export function WhatIsStemna() {
+export type WhatIsStemnaContent = {
+  eyebrow: string;
+  heading: string;
+  body: ReactNode;
+  cta: string;
+  support: string;
+  featureDescriptions: [string, string, string, string];
+};
+
+export function WhatIsStemna({ content }: { content?: WhatIsStemnaContent }) {
   return (
     <section id="funksjoner" className={`section ${styles.section}`}>
       <div id="slik-fungerer-det" className="container">
         <div className={styles.columns}>
           <div className={styles.copy}>
-            <p className="eyebrow">HVA ER STEMNA?</p>
-            <h2>Alt du trenger for å gjøre HELFO-refusjonen enklere.</h2>
+            <p className="eyebrow">{content?.eyebrow ?? "HVA ER STEMNA?"}</p>
+            <h2>{content?.heading ?? "Alt du trenger for å gjøre HELFO-refusjonen enklere."}</h2>
             <div className={styles.body}>
+              {content?.body ?? <>
               <p>
                 Stemna er et webbasert system for logopeder og audiopedagoger
                 som sender refusjonskrav til HELFO.
@@ -54,19 +65,20 @@ export function WhatIsStemna() {
                 </Link>
                 .
               </p>
+              </>}
             </div>
             <div className={styles.actions}>
               <Action>
-                Prøv Stemna gratis <Icon name="arrow" />
+                {content?.cta ?? "Prøv Stemna gratis"} <Icon name="arrow" />
               </Action>
-              {showProductVideo && (
+              {!content && showProductVideo && (
                 <Action kind="demo" className="button button-secondary">
                   Se hvordan det fungerer
                 </Action>
               )}
             </div>
             <p className={styles.note}>
-              0 kr i dag. 30 dager gratis. Ingen bindingstid.
+              {content?.support ?? "0 kr i dag. 30 dager gratis. Ingen bindingstid."}
             </p>
           </div>
           <div className={styles.visual}>
@@ -82,13 +94,13 @@ export function WhatIsStemna() {
           </div>
         </div>
         <div className={styles.features}>
-          {features.map((feature) => (
+          {features.map((feature, index) => (
             <article key={feature.title}>
               <span className={styles.featureIcon}>
                 <Icon name={feature.icon} />
               </span>
               <h3>{feature.title}</h3>
-              <p>{feature.text}</p>
+              <p>{content?.featureDescriptions[index] ?? feature.text}</p>
             </article>
           ))}
         </div>

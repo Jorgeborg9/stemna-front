@@ -1,3 +1,5 @@
+import { WhatIsStemna } from "./what-is-stemna";
+import { seoProductContent } from "@/lib/seo-product-content";
 import Link from "next/link";
 import { ContextualText } from "./contextual-text";
 import { FooterCTA } from "./footer-cta";
@@ -8,7 +10,6 @@ import { Action } from "./actions";
 import { pricing, photography } from "@/lib/landing-data";
 import { seoOffer, type SeoPageData } from "@/lib/seo-pages";
 import styles from "./seo-landing.module.css";
-import { seoProductVisual, seoProductVariants } from "@/lib/seo-product-visual";
 import { SeoTestimonialCarousel } from "./seo-testimonial-carousel";
 import { seoTestimonials } from "@/lib/seo-testimonials";
 
@@ -25,7 +26,7 @@ export function seoMetadata(page: SeoPageData): Metadata {
   };
 }
 
-// Static desktop product concept: all patients, notes and statuses are fictional.
+// Static desktop product concept: all patients, sessions and statuses are fictional.
 // Replace with approved anonymized screenshots when the product is ready.
 function DesktopPreview({ mode }: { mode: SeoPageData["mode"] }) {
   const refund = mode === "refund";
@@ -39,8 +40,9 @@ function DesktopPreview({ mode }: { mode: SeoPageData["mode"] }) {
         <div className={styles.previewBody}>
           <div className={styles.previewTabs} aria-hidden="true">
             <span className={!refund ? styles.selected : ""}>Pasienter</span>
-            <span>Avtaler</span>
-            <span className={refund ? styles.selected : ""}>HELFO-oppgjør</span>
+            <span>Kalender</span>
+            <span>HELFO-takster</span>
+            <span className={refund ? styles.selected : ""}>Refusjonskrav</span>
           </div>
           <div className={styles.previewTitle}>
             <div>
@@ -52,9 +54,7 @@ function DesktopPreview({ mode }: { mode: SeoPageData["mode"] }) {
               <h3>
                 {refund
                   ? "Ditt refusjonsgrunnlag"
-                  : mode === "hearing"
-                    ? "Refusjonsgrunnlag"
-                    : "Refusjonsgrunnlag"}
+                  : "Pasientinformasjon"}
               </h3>
             </div>
             <Icon name={refund ? "refund" : "journal"} />
@@ -65,7 +65,7 @@ function DesktopPreview({ mode }: { mode: SeoPageData["mode"] }) {
                 {[
                   ["Utkast", "2"],
                   ["Fil generert", "4"],
-                  ["Under arbeid", "1"],
+                  ["Klar til filgenerering", "1"],
                 ].map(([label, value]) => (
                   <div key={label}>
                     <span>{label}</span>
@@ -74,7 +74,7 @@ function DesktopPreview({ mode }: { mode: SeoPageData["mode"] }) {
                 ))}
               </div>
               <div className={styles.previewRows}>
-                {["Utkast", "Fil generert", "Under arbeid"].map((status, i) => (
+                {["Utkast", "Fil generert", "Klar til filgenerering"].map((status, i) => (
                   <div key={status}>
                     <span>
                       <b>Refusjonskrav {i + 1}</b>
@@ -85,7 +85,7 @@ function DesktopPreview({ mode }: { mode: SeoPageData["mode"] }) {
                 ))}
               </div>
               <p className={styles.previewNote}>
-                Registrer time → Generer fil → Last ned
+                Generer refusjonsfil → Last ned refusjonsfil
               </p>
             </>
           ) : (
@@ -101,14 +101,8 @@ function DesktopPreview({ mode }: { mode: SeoPageData["mode"] }) {
               </div>
               <div className={styles.journal}>
                 <span>TIMEINFORMASJON · EKSEMPEL</span>
-                <h4>
-                  {mode === "hearing" ? "Registrert time" : "Registrert time"}
-                </h4>
-                <p>
-                  {mode === "hearing"
-                    ? "Velg relevante takster før refusjonsfilen genereres."
-                    : "Velg relevante takster før refusjonsfilen genereres."}
-                </p>
+                <h4>Registrert time</h4>
+                <p>Velg relevante HELFO-takster før refusjonsfilen genereres.</p>
                 <div className={styles.noteLines} aria-hidden="true">
                   <i />
                   <i />
@@ -205,10 +199,7 @@ function SeoHero({ page }: { page: SeoPageData }) {
           <p className={styles.intro}>{page.intro}</p>
           <div className={styles.actions}>
             <Action>
-              Prøv 30 dager gratis <Icon name="arrow" />
-            </Action>
-            <Action kind="demo" className="button button-secondary">
-              Book en demo
+              Få early bird-pris <Icon name="arrow" />
             </Action>
           </div>
           <Checks
@@ -250,28 +241,16 @@ function SeoFeatureRow({ page }: { page: SeoPageData }) {
   );
 }
 function SeoValueSection({ page }: { page: SeoPageData }) {
-  const productVisual =
-    page.mode === "refund" || page.mode === "practice"
-      ? seoProductVariants[page.mode]
-      : seoProductVisual;
+  const content = seoProductContent[page.mode];
   return (
-    <section className={styles.valueSection}>
-      <div className={`container ${styles.productSection}`}>
-        <div className={styles.productIntro}>
-          <h2>{page.valueTitle}</h2>
-          <p>{page.valueCopy}</p>
-        </div>
-        <figure className={styles.productLaptop}>
-          <Image
-            {...productVisual}
-            alt={productVisual.alt}
-            sizes="(max-width: 900px) calc(100vw - 40px), (max-width: 1280px) 58vw, 696px"
-          />
-          <figcaption>Produktillustrasjon · Fiktive eksempeldata</figcaption>
-        </figure>
-        <Checks className={styles.productBenefits} items={page.benefits} />
-      </div>
-    </section>
+    <WhatIsStemna content={{
+      ...content,
+      body: <>{content.paragraphs.map(paragraph => (
+        <p key={paragraph.text}><ContextualText text={paragraph.text} links={paragraph.links} /></p>
+      ))}</>,
+      cta: "Få early bird-pris",
+      support: "30 dager gratis · 349 kr/mnd med early bird · Ingen bindingstid",
+    }} />
   );
 }
 function SeoTestimonial({ page }: { page: SeoPageData }) {
@@ -292,41 +271,26 @@ export function FreeTrialCTA() {
     <section className={`section ${styles.trialSection}`}>
       <div className={`container ${styles.trialBlock}`}>
         <div className={styles.trialContent}>
-          <p className="eyebrow">KOM I GANG I DAG</p>
+          <p className="eyebrow">EARLY BIRD</p>
           <h2>{seoOffer.title}</h2>
           <p className={styles.trialCopy}>{seoOffer.description}</p>
           <Checks className={styles.trialTrust} items={trust} />
           <p className={styles.trialPrice}>
-            <span className="check-circle">
-              <Icon name="check" />
-            </span>
-            <strong>
-              {new Intl.NumberFormat("nb-NO").format(pricing.plans[0].price)}{" "}
-              {pricing.currency}/{pricing.interval}
-            </strong>{" "}
-            etter prøveperioden
+            Ordinær pris: <s>{pricing.plans[0].price} {pricing.currency}/{pricing.interval}</s>
           </p>
           <div className={styles.actions}>
             <Action className="button">
-              Prøv gratis nå <Icon name="arrow" />
-            </Action>
-            <Action kind="demo" className="button button-secondary">
-              Book en demo
+              Få early bird-pris <Icon name="arrow" />
             </Action>
           </div>
           <Link className={styles.priceLink} href="/#priser">
             Se pris og innhold
           </Link>
+          <p><small>Early bird gjelder ved registrering innen 31. oktober 2026.</small></p>
         </div>
         <div className={`${styles.practiceVisual} ${styles.trialVisual}`}>
-          <Image
-            src="/Reference/Helfo2.png"
-            alt="Illustrasjon av Stemnas HELFO-oppgjør på en bærbar datamaskin"
-            fill
-            sizes="(max-width: 900px) 100vw, 45vw"
-            className={styles.trialImage}
-          />
-        </div>
+  <DesktopPreview mode="refund" />
+</div>
       </div>
     </section>
   );
@@ -370,7 +334,7 @@ export function SeoLandingPage({ page }: { page: SeoPageData }) {
         <FreeTrialCTA />
         <SeoFAQ page={page} />
       </main>
-      <FooterCTA />
+      <FooterCTA earlyBird />
       <Footer />
     </>
   );

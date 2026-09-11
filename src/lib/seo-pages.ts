@@ -1,13 +1,13 @@
 import { pricing } from "./landing-data";
 
-const priceAnswer = `Stemna koster ${pricing.plans[0].price} kr per måned. Du kan prøve gratis i 30 dager, uten bindingstid. Prisen inkluderer HELFO-refusjon, generering av refusjonsfil, pasientoversikt, kalender, takster og norsk support. Se priser.`;
+const priceAnswer = `Ordinær pris er ${pricing.plans[0].price} kr/mnd. Ved registrering innen 31. oktober 2026 får du early bird-prisen på 349 kr/mnd så lenge abonnementet er aktivt. 30 dager gratis og ingen bindingstid. Registreringen er ikke åpen ennå – meld interesse for å få beskjed. Se priser.`;
 
 // Launch product truth: generate/download reimbursement files; users submit to HELFO themselves.
 // Testimonials and product previews below are explicitly fictional placeholders.
 export const seoOffer = {
-  title: "Prøv Stemna gratis i 30 dager",
-  description: "Få full tilgang til alle funksjoner. Ingen bindingstid.",
-  trust: ["30 dager gratis", "Ingen bindingstid", "Norskutviklet"],
+  title: "Få Stemna til 349 kr/mnd",
+  description: "Meld interesse innen 31. oktober og få muligheten til å sikre early bird-prisen når Stemna åpner.",
+  trust: ["30 dager gratis", "349 kr/mnd etter prøveperioden", "Behold prisen så lenge abonnementet er aktivt", "Ingen bindingstid", "Norskutviklet"],
   // No verified hosting evidence exists in this frontend project. Do not publish
   // the location/security claim until the hosting arrangement is documented.
   storageInNorwayVerified: false,
@@ -49,7 +49,7 @@ export const seoPages: Record<
     eyebrow: "FOR LOGOPEDER",
     heading: "Enklere HELFO-refusjon for logopeder",
     intro:
-      "Stemna hjelper logopeder med å samle pasientinformasjon, timer og takster før refusjonsfilen genereres. Last ned filen og send den inn til HELFO selv.",
+      "Samle pasienter, timer og HELFO-takster i én arbeidsflyt. Stemna gjør refusjonsarbeidet enklere for privatpraktiserende logopeder, så du får mer tid til pasientene.",
     mode: "journal",
     features: [
       {
@@ -75,7 +75,7 @@ export const seoPages: Record<
     ],
     valueTitle: "Fra time til refusjonsfil",
     valueCopy:
-      "Samle grunnlaget for HELFO-refusjon i Stemna. Velg relevante takster og bruk pasient- og timeinformasjonen når du klargjør refusjonsfilen. Du står selv for innsendingen til HELFO.",
+      "Registrer gjennomførte behandlingstimer og velg relevante HELFO-takster. Med pasientinformasjon og timer samlet blir det enklere å gjøre refusjonskravet klart i Stemna.",
     benefits: [
       "Pasientinformasjon samlet",
       "Timer i kalenderen",
@@ -136,7 +136,7 @@ export const seoPages: Record<
     eyebrow: "FOR AUDIOPEDAGOGER",
     heading: "Enklere HELFO-refusjon for audiopedagoger",
     intro:
-      "Stemna hjelper audiopedagoger med å samle pasientinformasjon, timer og takster før refusjonsfilen genereres. Last ned filen og send den inn til HELFO selv.",
+      "Få bedre oversikt over pasienter, timer og HELFO-takster i din audiopedagogiske praksis. Stemna hjelper deg å gjøre refusjonskravet klart med mindre administrasjon.",
     mode: "hearing",
     features: [
       {
@@ -162,7 +162,7 @@ export const seoPages: Record<
     ],
     valueTitle: "Enklere refusjonsarbeid for audiopedagoger",
     valueCopy:
-      "Samle grunnlaget for HELFO-refusjon i Stemna. Velg relevante takster og bruk pasient- og timeinformasjonen når du klargjør refusjonsfilen. Du står selv for innsendingen til HELFO.",
+      "Hold oversikt over pasienter og gjennomførte timer i din audiopedagogiske praksis. Velg relevante HELFO-takster og klargjør refusjonskravet med informasjonen samlet på ett sted.",
     benefits: [
       "Pasientinformasjon samlet",
       "Timer i kalenderen",
@@ -223,7 +223,7 @@ export const seoPages: Record<
     eyebrow: "HELFO-OPPGJØR",
     heading: "Enklere HELFO-refusjon – fra time til ferdig fil",
     intro:
-      "Samle pasientinformasjon, timer og relevante takster i Stemna. Generer refusjonsfilen og last den ned. Deretter laster du selv opp filen hos HELFO.",
+      "Fra gjennomført time til ferdig refusjonskrav – med pasienter, timer og HELFO-takster samlet på ett sted. Stemna gjør det enklere å klargjøre HELFO-oppgjøret.",
     mode: "refund",
     features: [
       {
@@ -243,18 +243,18 @@ export const seoPages: Record<
       },
       {
         title: "Last ned filen",
-        description: "Du sender filen inn til HELFO selv",
+        description: "Refusjonsfil klar til innsending",
         icon: "refund",
       },
     ],
     valueTitle: "Slik klargjør du HELFO-refusjon",
     valueCopy:
-      "Registrer pasient- og timeinformasjonen og velg relevante takster. Stemna organiserer grunnlaget og genererer refusjonsfilen. Last ned filen fra Stemna, og last den deretter opp hos HELFO selv.",
+      "Registrer gjennomførte timer og velg relevante HELFO-takster. Stemna samler grunnlaget og genererer refusjonsfilen, slik at du slipper å holde oversikt i flere systemer.",
     benefits: [
       "Samle pasient- og timeinformasjon",
       "Velg relevante takster",
       "Generer refusjonsfilen",
-      "Last ned og last opp hos HELFO selv",
+      "Refusjonskrav klart til innsending",
     ],
     testimonial: {
       quote:
@@ -277,7 +277,7 @@ export const seoPages: Record<
       {
         question: "Kan logopeder bruke Stemna til HELFO-refusjon?",
         answer:
-          "Ja. Stemna for logopeder samler pasienter, timer og takster før refusjonsfilen genereres. Du laster ned filen og sender den inn til HELFO selv.",
+          "Ja. Stemna for logopeder samler pasienter, timer og HELFO-takster og gjør det enklere å klargjøre refusjonskravet.",
         answerLinks: [
           {
             text: "Stemna for logopeder",
@@ -288,7 +288,7 @@ export const seoPages: Record<
       {
         question: "Kan audiopedagoger bruke Stemna til HELFO-refusjon?",
         answer:
-          "Ja. Stemna for audiopedagoger gjør klargjøringen av refusjonsgrunnlaget enklere. Innsendingen av den nedlastede filen gjør du selv hos HELFO.",
+          "Ja. Stemna for audiopedagoger gir oversikt over pasienter, timer og HELFO-takster som grunnlag for refusjonskravet.",
         answerLinks: [
           {
             text: "Stemna for audiopedagoger",
@@ -316,7 +316,7 @@ export const seoPages: Record<
     eyebrow: "FOR PRIVAT PRAKSIS",
     heading: "Enklere refusjonsarbeid i privat praksis",
     intro:
-      "Stemna samler pasientinformasjon, timer og takster som grunnlag for HELFO-refusjon. Generer refusjonsfilen, last den ned og send den inn til HELFO selv.",
+      "Driver du egen praksis som logoped eller audiopedagog? Samle pasienter, timer og HELFO-takster i Stemna og bruk mindre tid på administrasjon rundt refusjonsarbeidet.",
     mode: "practice",
     features: [
       {
@@ -342,7 +342,7 @@ export const seoPages: Record<
     ],
     valueTitle: "Grunnlaget for refusjon på ett sted",
     valueCopy:
-      "Bruk pasientinformasjon, timer og relevante takster i en enklere arbeidsflyt frem mot HELFO-innsending. Stemna genererer filen; du laster den ned og sender den inn selv.",
+      "Med pasientinformasjon, gjennomførte timer og HELFO-takster samlet får du bedre oversikt i egen praksis. Gjør refusjonskravet klart i én arbeidsflyt, med færre manuelle steg.",
     benefits: [
       "Pasientinformasjon samlet",
       "Oversikt over timer",

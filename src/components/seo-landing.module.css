@@ -1055,11 +1055,45 @@
   margin: 0;
   min-width: 0;
 }
-.productLaptop img {
-  display: block;
-  width: 100%;
-  height: auto;
-  object-fit: contain;
+.productLaptop .previewFigure {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+}
+.productLaptop .preview {
+  min-height: 440px;
+}
+.productLaptop .previewTabs {
+  flex-wrap: wrap;
+  gap: 10px 18px;
+}
+.productLaptop .previewStats > div,
+.productLaptop .previewRows > div > span {
+  min-width: 0;
+}
+.productLaptop .status {
+  max-width: 45%;
+}
+@media (max-width: 760px) {
+  .productLaptop .preview {
+    min-height: 0;
+  }
+  .productLaptop .previewBody {
+    padding: 14px;
+  }
+  .productLaptop .previewTitle {
+    margin: 14px 0;
+  }
+  .productLaptop .previewStats {
+    gap: 6px;
+  }
+  .productLaptop .previewStats > div {
+    padding: 8px;
+  }
+  .productLaptop .previewRows > div {
+    gap: 8px;
+    padding-block: 9px;
+  }
 }
 .productLaptop figcaption {
   text-align: center;

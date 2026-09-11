@@ -57,7 +57,7 @@ export const seoTestimonials: Record<SeoPageData["mode"], SeoTestimonial[]> = {
       name: "Mari",
       role: "privatpraktiserende behandler",
       quote:
-        "Jeg lager refusjonsfilen i Stemna og laster den ned før jeg selv sender den inn til HELFO.",
+        "Jeg får bedre oversikt over refusjonsarbeidet når timer og takster er samlet i Stemna.",
       portrait: testimonials[2].portrait,
     },
   ],

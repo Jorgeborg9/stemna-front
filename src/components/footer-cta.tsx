@@ -2,7 +2,7 @@ import { Logo, Icon } from "./landing";
 import { Action } from "./actions";
 import { trial } from "@/lib/landing-data";
 
-export function FooterCTA() {
+export function FooterCTA({ earlyBird = false }: { earlyBird?: boolean }) {
   return (
     <section className="final-cta">
       <div className="container final-inner">
@@ -14,12 +14,12 @@ export function FooterCTA() {
             arbeidshverdag.
           </h2>
           <p>
-            Test Stemna gratis i 30 dager. Vi hjelper deg med å komme i gang.
+            {earlyBird ? "30 dager gratis · 349 kr/mnd med early bird · Ingen bindingstid" : "Test Stemna gratis i 30 dager. Vi hjelper deg med å komme i gang."}
           </p>
         </div>
         <div className="final-action">
           <Action className="button button-white">
-            {trial.cta} <Icon name="arrow" />
+            {earlyBird ? "Få early bird-pris" : trial.cta} <Icon name="arrow" />
           </Action>
           <span>
             <Icon name="check" />
