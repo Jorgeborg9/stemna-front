@@ -30,7 +30,7 @@ export default function Home() {
         <WebPlatformSection />
         <AudienceSection />
         <TrustSection />
-        <Testimonials />
+        {/* <Testimonials /> */}
         <Pricing />
       </main>
       <FooterCTA />

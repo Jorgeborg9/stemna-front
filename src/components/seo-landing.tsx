@@ -12,6 +12,7 @@ import { seoOffer, type SeoPageData } from "@/lib/seo-pages";
 import styles from "./seo-landing.module.css";
 import { SeoTestimonialCarousel } from "./seo-testimonial-carousel";
 import { seoTestimonials } from "@/lib/seo-testimonials";
+const showTestimonials = false;
 
 export function seoMetadata(page: SeoPageData): Metadata {
   return {
@@ -330,7 +331,7 @@ export function SeoLandingPage({ page }: { page: SeoPageData }) {
         <SeoHero page={page} />
         <SeoFeatureRow page={page} />
         <SeoValueSection page={page} />
-        <SeoTestimonial page={page} />
+        {showTestimonials && <SeoTestimonial page={page} />}
         <FreeTrialCTA />
         <SeoFAQ page={page} />
       </main>
