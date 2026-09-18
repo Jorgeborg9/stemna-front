@@ -1,0 +1,160 @@
+.panel {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 1000;
+  width: min(640px, calc(100% - 48px));
+  padding: 28px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--white);
+  color: var(--dark);
+  box-shadow: 0 18px 60px #10343324;
+}
+
+.panel h2 {
+  font-size: 25px;
+  letter-spacing: -0.6px;
+}
+
+.body {
+  max-width: 570px;
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.primary,
+.secondary,
+.link {
+  min-height: 44px;
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.primary,
+.secondary {
+  padding: 10px 17px;
+}
+
+.primary {
+  border: 1px solid var(--dark);
+  background: var(--dark);
+  color: var(--white);
+}
+
+.primary:hover {
+  background: var(--secondary);
+  border-color: var(--secondary);
+}
+
+.secondary {
+  border: 1px solid var(--border);
+  background: var(--white);
+  color: var(--dark);
+}
+
+.secondary:hover {
+  background: var(--mint);
+}
+
+.link {
+  padding: 8px 6px;
+  border: 0;
+  background: transparent;
+  color: var(--secondary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.link:hover {
+  color: var(--dark);
+}
+
+.settings {
+  margin-top: 22px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.settings h3 {
+  font-size: 16px;
+}
+
+.setting {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.setting:last-child {
+  border-bottom: 0;
+}
+
+.setting label,
+.settingCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.setting label span,
+.settingCopy span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.setting input {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  accent-color: var(--secondary);
+}
+
+.always {
+  flex-shrink: 0;
+  color: var(--secondary);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+@media (max-width: 560px) {
+  .panel {
+    right: 12px;
+    bottom: 12px;
+    width: calc(100% - 24px);
+    padding: 22px;
+  }
+
+  .panel h2 {
+    font-size: 22px;
+  }
+
+  .actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .primary,
+  .secondary,
+  .link {
+    width: 100%;
+  }
+}

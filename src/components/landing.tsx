@@ -3,6 +3,7 @@ import { TestimonialCarousel } from "./testimonial-carousel";
 import Image from "next/image";
 import Link from "next/link";
 import { Action, MobileNavigation, DesktopNavigation } from "./actions";
+import { CookieSettingsLink } from "./cookie-consent";
 import {
   audienceBenefits,
   comparison,
@@ -447,6 +448,7 @@ export function Footer() {
             <Action kind="terms" className="text-link">
               Vilkår
             </Action>
+            <CookieSettingsLink />
           </div>
           <span>Utviklet for en enklere praksishverdag.</span>
         </div>
