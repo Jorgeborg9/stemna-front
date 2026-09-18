@@ -122,7 +122,7 @@ export function Header() {
           <Action kind="login" className="text-link">
             Logg inn
           </Action>
-          <Action>
+          <Action ctaLocation="header">
             {trial.cta} <Icon name="arrow" />
           </Action>
         </div>
@@ -151,7 +151,7 @@ export function Hero() {
             refusjonsarbeidet enklere og raskere.
           </p>
           <div className="hero-actions">
-            <Action>
+            <Action ctaLocation="hero">
               {trial.cta} <Icon name="arrow" />
             </Action>
             {showProductVideo && (

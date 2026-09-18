@@ -3,6 +3,7 @@ import Link from "next/link";
 import { EarlyAccessAction } from "./early-access-dialog";
 import { useRef, useState } from "react";
 import { destinations, navigationGroups, trial } from "@/lib/landing-data";
+import type { TrialCtaLocation } from "@/lib/tracking";
 import navStyles from "./site-navigation.module.css";
 
 const messages = {
@@ -31,13 +32,15 @@ export function Action({
   kind = "signup",
   children,
   className = "button",
+  ctaLocation,
 }: {
   kind?: "signup" | keyof typeof messages;
   children: React.ReactNode;
   className?: string;
+  ctaLocation?: TrialCtaLocation;
 }) {
   const dialog = useRef<HTMLDialogElement>(null);
-  if (kind === "signup") return <EarlyAccessAction className={className}>{children}</EarlyAccessAction>;
+  if (kind === "signup") return <EarlyAccessAction className={className} ctaLocation={ctaLocation}>{children}</EarlyAccessAction>;
   if (destinations[kind])
     return (
       <Link className={className} href={destinations[kind]!}>
@@ -104,7 +107,7 @@ export function MobileNavigation() {
           <Action kind="login" className="text-link">
             Logg inn
           </Action>
-          <Action>
+          <Action ctaLocation="header">
             {trial.cta} <span aria-hidden="true">↗</span>
           </Action>
         </nav>

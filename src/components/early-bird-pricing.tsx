@@ -63,7 +63,7 @@ export function EarlyBirdPricing({ features, reassurance, arrow, regularPrice }:
             {active && <div className={styles.saving}>Du sparer {regularPrice - EARLY_PRICE} kr/mnd</div>}
             {active && <p className={styles.retention}>Behold prisen så lenge abonnementet er aktivt.</p>}
             {reassurance}
-            <Action className="button">{active ? "Få early bird-pris" : "Prøv gratis i 30 dager"} {arrow}</Action>
+            <Action className="button" ctaLocation="pricing">{active ? "Få early bird-pris" : "Prøv gratis i 30 dager"} {arrow}</Action>
             <p className={styles.payment}>{now === null ? "0 kr i dag. 30 dager gratis." : `0 kr i dag. Deretter ${price} kr/mnd etter prøveperioden.`}</p>
             <div className="price-divider" />
             {features}

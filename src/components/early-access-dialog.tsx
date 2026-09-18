@@ -2,12 +2,13 @@
 
 import { useEffect, useId, useRef, useState, type FormEvent, type ReactNode } from "react";
 import { duplicateMessage, failureMessage, professions } from "@/lib/early-access";
+import { trackTrialCtaClick, type TrialCtaLocation } from "@/lib/tracking";
 import styles from "./early-access-dialog.module.css";
 
-export function EarlyAccessAction({ children, className = "button" }: { children: ReactNode; className?: string }) {
+export function EarlyAccessAction({ children, className = "button", ctaLocation }: { children: ReactNode; className?: string; ctaLocation?: TrialCtaLocation }) {
   const [open, setOpen] = useState(false);
   return <>
-    <button type="button" className={className} onClick={() => setOpen(true)}>{children}</button>
+    <button type="button" className={className} onClick={() => { if (ctaLocation) trackTrialCtaClick(ctaLocation); setOpen(true); }}>{children}</button>
     {open && <InterestDialog onClose={() => setOpen(false)} />}
   </>;
 }

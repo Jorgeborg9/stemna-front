@@ -18,7 +18,7 @@ export function FooterCTA({ earlyBird = false }: { earlyBird?: boolean }) {
           </p>
         </div>
         <div className="final-action">
-          <Action className="button button-white">
+          <Action className="button button-white" ctaLocation="final_cta">
             {earlyBird ? "Få early bird-pris" : trial.cta} <Icon name="arrow" />
           </Action>
           <span>

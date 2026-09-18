@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Action } from "./actions";
 import { Icon, Logo, type IconName } from "./landing";
 import { showProductVideo } from "@/lib/landing-data";
+import type { TrialCtaLocation } from "@/lib/tracking";
 import styles from "./what-is-stemna.module.css";
 
 const features: { title: string; text: string; icon: IconName }[] = [
@@ -38,7 +39,7 @@ export type WhatIsStemnaContent = {
   featureDescriptions: [string, string, string, string];
 };
 
-export function WhatIsStemna({ content }: { content?: WhatIsStemnaContent }) {
+export function WhatIsStemna({ content, ctaLocation = "product_overview" }: { content?: WhatIsStemnaContent; ctaLocation?: TrialCtaLocation }) {
   return (
     <section id="funksjoner" className={`section ${styles.section}`}>
       <div id="slik-fungerer-det" className="container">
@@ -68,7 +69,7 @@ export function WhatIsStemna({ content }: { content?: WhatIsStemnaContent }) {
               </>}
             </div>
             <div className={styles.actions}>
-              <Action>
+              <Action ctaLocation={ctaLocation}>
                 {content?.cta ?? "Prøv Stemna gratis"} <Icon name="arrow" />
               </Action>
               {!content && showProductVideo && (

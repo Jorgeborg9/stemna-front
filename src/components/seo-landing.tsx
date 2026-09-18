@@ -199,7 +199,7 @@ function SeoHero({ page }: { page: SeoPageData }) {
           <h1>{page.heading}</h1>
           <p className={styles.intro}>{page.intro}</p>
           <div className={styles.actions}>
-            <Action>
+            <Action ctaLocation="seo_hero">
               Få early bird-pris <Icon name="arrow" />
             </Action>
           </div>
@@ -244,7 +244,7 @@ function SeoFeatureRow({ page }: { page: SeoPageData }) {
 function SeoValueSection({ page }: { page: SeoPageData }) {
   const content = seoProductContent[page.mode];
   return (
-    <WhatIsStemna content={{
+    <WhatIsStemna ctaLocation="seo_value" content={{
       ...content,
       body: <>{content.paragraphs.map(paragraph => (
         <p key={paragraph.text}><ContextualText text={paragraph.text} links={paragraph.links} /></p>
@@ -280,7 +280,7 @@ export function FreeTrialCTA() {
             Ordinær pris: <s>{pricing.plans[0].price} {pricing.currency}/{pricing.interval}</s>
           </p>
           <div className={styles.actions}>
-            <Action className="button">
+            <Action className="button" ctaLocation="seo_trial">
               Få early bird-pris <Icon name="arrow" />
             </Action>
           </div>
